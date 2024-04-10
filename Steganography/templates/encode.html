@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="center">Encode</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="carrierfile">Carrier File</label>
+            <input type="file" class="form-control" name="carrierfile" required>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="messagefile">Message File</label>
+            <input type="file" class="form-control" name="messagefile" id="messagefile" required>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="start">Start BIT Position</label>
+            <input type="number" class="form-control" name="start_bit" id="start" required>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="len">Length (Periodicity)</label>
+            <input type="number" class="form-control" name="len" id="len" required>
+        </div>
+        <br />
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </form>
+    {% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <hr>
+    <h1 align='center' style='letter-spacing:2px'>Welcome to Steganography<h1/>
+        <form method="post" action='/delete'>
+        <input style='float:right;margin-top:-40px;background-color:#217b7e;color:white' type="submit" value="Clear" class="btn" />
+        </form>
+    <hr> 
+    <hr>
+    <h4>Embeded Image Files</h4>
+        <hr>
+        <ul>
+            {% for image_file in image_files %}
+                <img src="data:image/png;base64,{{ image_file }}" style='height:250px;width:250px;padding:3.5px;'>
+            {% endfor %}
+        </ul>
+        <hr>
+        <h4>Embeded Video Files</h4>
+        <hr>
+        <ul>
+            {% for video_file in video_files %}
+            <li>
+                <video width='250px' height='250px' controls>
+                    <source src="data:video/mp4;base64,{{ video_file }}" type="video/mp4" >
+                    Your browser does not support the video tag.
+                </video>       
+        </li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <h4>Embeded Audio Files</h4>
+        <hr>
+        <ul>
+            {% for audio_file in audio_files %}
+            <li><audio controls>
+                <source src="data:audio/mp3;base64,{{ audio_file }}" type="audio/mp3" >
+
+                Your browser does not support the audio element.
+            </audio></li>
+            {% endfor %}
+        </ul>
+    
+    {% endblock %}
